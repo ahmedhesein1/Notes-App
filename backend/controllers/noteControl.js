@@ -13,7 +13,8 @@ export const getAllNotes = asyncHandler(async (req, res, next) => {
 });
 export const addNote = asyncHandler(async (req, res, next) => {
   const { title, content, tags } = req.body;
-  const newNote = await Note.create({ title, content, tags });
+  const userId = req.user.id;
+  const newNote = await Note.create({ title, content, tags, userId });
   res.status(201).json({
     success: true,
     data: newNote,
