@@ -19,7 +19,8 @@ const Note = new mongoose.Schema(
       default: false,
     },
     userId: {
-      type: String,
+      type: mongoose.Schema.Types.ObjectId, // Use ObjectId to reference User
+      ref: "User", // Reference the User model
       required: true,
     },
   },
