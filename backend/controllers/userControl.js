@@ -46,6 +46,16 @@ export const login = asyncHandler(async (req, res, next) => {
       },
     });
 });
+export const logout = asyncHandler(async (req, res, next) => {
+  res
+    .cookie("token", " ", { expiresIn: new Date(0) })
+    .status(200)
+    .json({
+      success: true,
+      message: "User logged out successfully",
+    });
+  next();
+});
 export const protect = asyncHandler(async (req, res, next) => {
   const token = req.cookies.token;
   if (!token) {
@@ -56,7 +66,7 @@ export const protect = asyncHandler(async (req, res, next) => {
   if (!user) {
     return next(new AppError("Please log in again."));
   }
-  req.user = user;
+  req.user = { id: user.id };
   decoded
     ? next()
     : next(new AppError("invalid token please log in again", 403));
