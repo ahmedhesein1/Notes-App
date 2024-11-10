@@ -39,13 +39,14 @@ Installation
 4.  npm installcd ../frontendnpm install
     
 5.  PORT = 1001
-6.  LOCAL\_DB = mongodb://localhost:27017/Notes-AppJWT\_SECRET = My\_ultra\_long\_secret\_Key
+6.  LOCAL\_DB = mongodb://localhost:27017/Notes-App
+7.  JWT\_SECRET = My\_ultra\_long\_secret\_Key
     
-7.  cd backend
-8.  npm run dev
+8.  cd backend
+9.  npm run dev
     
-9.  cd ../frontend
-10.  npm start
+10.  cd ../frontend
+11.  npm start
     
 
 API Endpoints
